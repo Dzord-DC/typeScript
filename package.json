@@ -1,0 +1,12 @@
+{
+  "name": "my-project",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node public/scripts/index.js"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.4"
+  }
+}
