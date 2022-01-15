@@ -1,6 +1,26 @@
 import { renderBlock } from './lib.js'
 
-export function renderSearchFormBlock () {
+export function renderSearchFormBlock (startDate: string, finishDate: string) {
+  let dateInput:string
+  let dateOutput: string
+  let nextMonth:string
+  const day = new Date().getDate()
+  const month = new Date().getMonth()
+  const year = new Date().getFullYear()
+  const nextMonthDay = (new Date(year, month + 2, day).getTime() - new Date(year, month+1, day).getTime()) / 86400000
+
+  if (new Date().getMonth()<=9){
+    dateInput = `${year}-0${month+1}-${day+1}`
+    dateOutput = `${year}-0${month + 1}-${day + 3}`
+    nextMonth = `${year}-0${month + 2}-${nextMonthDay}`
+  }else{
+    dateInput = `${year}-${month + 1}-${day+1}`
+    dateOutput = `${year}-${month + 1}-${day + 3}`
+    nextMonth = `${year}-${month + 2}-${nextMonthDay}}`
+  }
+  const inputStart = startDate ? startDate : dateInput
+  const inputFinish = finishDate ? finishDate : dateOutput
+  //console.log(nowDate);
   renderBlock(
     'search-form-block',
     `
@@ -20,11 +40,11 @@ export function renderSearchFormBlock () {
         <div class="row">
           <div>
             <label for="check-in-date">Дата заезда</label>
-            <input id="check-in-date" type="date" value="2021-05-11" min="2021-05-11" max="2021-06-30" name="checkin" />
+            <input id="check-in-date" type="date" value="${inputStart}" min="${dateInput}" max="${nextMonth}" name="checkin" />
           </div>
           <div>
             <label for="check-out-date">Дата выезда</label>
-            <input id="check-out-date" type="date" value="2021-05-13" min="2021-05-11" max="2021-06-30" name="checkout" />
+            <input id="check-out-date" type="date" value="${inputFinish}" min="${dateOutput}" max="${nextMonth}" name="checkout" />
           </div>
           <div>
             <label for="max-price">Макс. цена суток</label>
