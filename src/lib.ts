@@ -3,7 +3,7 @@ export function renderBlock(elementId, html) {
   element.innerHTML = html
 }
 
-export function renderToast(message, action) {
+export function renderToast(message, action?) {
   let messageText = ''
 
   if (message != null) {
