@@ -16,7 +16,7 @@ export function renderSearchFormBlock (startDate: string, finishDate: string) {
   }else{
     dateInput = `${year}-${month + 1}-${day+1}`
     dateOutput = `${year}-${month + 1}-${day + 3}`
-    nextMonth = `${year}-${month + 2}-${nextMonthDay}}`
+    nextMonth = `${year}-${month + 2}-${nextMonthDay}`
   }
   const inputStart = startDate ? startDate : dateInput
   const inputFinish = finishDate ? finishDate : dateOutput
