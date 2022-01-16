@@ -59,3 +59,28 @@ export function renderSearchFormBlock (startDate: string, finishDate: string) {
     `
   )
 }
+
+export const search = (checkIn, checkOut, price) => {
+  //const checkInDate = (<HTMLInputElement>document.getElementById('check-in-date')).value
+  //const checkOutDate = (<HTMLInputElement>document.getElementById('check-out-date')).value
+  //console.log(checkInDate, checkOutDate);
+  console.log(checkIn, checkOut, price)
+}
+
+export const searchFormData = ()=>{
+  const query = window.location.search.substring(1)
+  const arrayVars = query.split('&');
+  const queryArray = []
+  for (let i=0; i<=arrayVars.length-1; i++){
+    const part = arrayVars[i].split('=')
+    //const name = part[0]    
+    //queryArray = { ...queryArray,[name]: part[1] }
+    //console.log(part)
+    queryArray[i]=(part[1])
+  }
+  //console.log((queryArray));
+  //search(queryArray, queryArray, queryArray) 
+  search(queryArray[0],queryArray[1],queryArray[2])   
+}
+
+
