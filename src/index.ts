@@ -3,6 +3,7 @@ import { renderSearchStubBlock } from './search-results.js'
 import { renderUserBlock } from './user.js'
 import { renderToast } from './lib.js'
 import {getFavoritesAmount, getUserData} from './local-storage.js'
+import { getTodosByCount } from './apiTodos.js'
 
 const userData = { name: 'Ivan', avatar: './img/avatar.png' }
 localStorage.setItem('user.name', userData.name)
@@ -18,4 +19,5 @@ window.addEventListener('DOMContentLoaded', () => {
     { name: 'Понял', handler: () => { console.log('Уведомление закрыто') } }
   )
   searchFormData()
+  getTodosByCount(30)
 })
