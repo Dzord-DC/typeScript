@@ -5,6 +5,7 @@ import { renderToast } from './lib.js'
 import {getFavoritesAmount, getUserData} from './local-storage.js'
 import { getTodosByCount } from './apiTodos.js'
 
+
 const userData = { name: 'Ivan', avatar: './img/avatar.png' }
 localStorage.setItem('user.name', userData.name)
 localStorage.setItem('user.avatar', userData.avatar)
