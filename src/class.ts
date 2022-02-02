@@ -2,7 +2,7 @@ class MyGraphicsPrimitive2D {
   point1: Array<number>;
   point2: Array<number>
 
-  offset(x?:number, y?:number){
+  offset(x:number, y:number){
     this.point1[1] = this.point1[1] + x
     this.point2[1] = this.point2[1] + x
     this.point1[2] = this.point1[2] + y
@@ -25,6 +25,6 @@ class MyCircle extends MyAreaPrimitive2D{
 }
 
 class MyRectangle extends MyAreaPrimitive2D{
-  width:number;
-  haidth: number
+  width: number = Math.abs(this.point2[1] - this.point1[1])
+  haidth: number = Math.abs(this.point2[2] - this.point1[2])
 }

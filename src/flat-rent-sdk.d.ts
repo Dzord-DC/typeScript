@@ -8,7 +8,7 @@ declare module 'flat-rent-sdk.js'{
   }
 
   export interface Callback<R> {
-    (error?: Error, result?: R)
+    (error?: Error, result?: R):void
   }
 
   export function get(id:string):Promise<object|null>

@@ -1,4 +1,4 @@
-export const getUserData = (key: unknown):string => {
+export const getUserData = (key: unknown):string|null => {
   if (typeof(key) == 'string'){   
     return localStorage.getItem(`user.${key}`)
   } else { return ''}
@@ -6,8 +6,8 @@ export const getUserData = (key: unknown):string => {
 }
 
 export const getFavoritesAmount = ():unknown => {
-  const numberFavirut = +localStorage.getItem('favoritesAmount')
-  if (typeof(numberFavirut)=='number'){
+  const numberFavirut = localStorage.getItem('favoritesAmount')
+  if (numberFavirut != null){
     return numberFavirut
   } else {
     return 0
